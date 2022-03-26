@@ -1,15 +1,16 @@
-<?php namespace Chantouch\Addresses\Traits;
+<?php
 
+namespace Chantouch\Addresses\Traits;
+
+use Chantouch\Addresses\Models\Country;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
-use Webpatser\Countries\Countries;
 
 /**
  * Class HasCountry
  * @package Chantouch\Addresses\Traits;
  * @property int|null $country_id
- * @property Countries|null $country
+ * @property Country|null $country
  * @property string $country_code
  */
 trait HasCountry
@@ -21,7 +22,7 @@ trait HasCountry
      */
     public function country(): BelongsTo
     {
-        return $this->belongsTo(Countries::class);
+        return $this->belongsTo(Country::class);
     }
 
     /**

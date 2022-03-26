@@ -1,4 +1,6 @@
-<?php namespace Chantouch\Addresses\Exceptions;
+<?php
+
+namespace Chantouch\Addresses\Exceptions;
 
 use Exception;
 

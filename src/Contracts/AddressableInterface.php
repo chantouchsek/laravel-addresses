@@ -1,4 +1,6 @@
-<?php namespace Chantouch\Addresses\Contracts;
+<?php
+
+namespace Chantouch\Addresses\Contracts;
 
 /**
  * Interface AddressableInterface

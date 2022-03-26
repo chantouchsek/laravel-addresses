@@ -44,7 +44,7 @@ return new class extends Migration
             $table->integer('country_id')->nullable()->unsigned()->index();
             $table->foreign('country_id')
                   ->references('id')
-                  ->on('countries');
+                  ->on(config('laravel-address.countries.table', 'countries'));
 
             $table->string('notes')->nullable();
 
@@ -56,7 +56,7 @@ return new class extends Migration
             $table->integer('user_id')->nullable()->unsigned()->index();
             $table->foreign('user_id')
                   ->references('id')
-                  ->on($this->table);
+                  ->on('users');
 
             foreach(config('laravel-address.addresses.flags', ['public', 'primary', 'billing', 'shipping']) as $flag) {
                 $table->boolean('is_'. $flag)->default(false)->index();

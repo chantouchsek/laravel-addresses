@@ -1,4 +1,6 @@
-<?php namespace Chantouch\Addresses\Models;
+<?php
+
+namespace Chantouch\Addresses\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;

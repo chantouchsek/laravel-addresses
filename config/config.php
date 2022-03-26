@@ -2,6 +2,13 @@
 
 return [
     /*
+     * Countries
+     */
+    'countries' => [
+        'table' => 'countries',
+    ],
+
+    /*
      * Addresses
      */
     'addresses' => [

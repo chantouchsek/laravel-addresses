@@ -1,8 +1,9 @@
-<?php namespace Chantouch\Addresses\Traits;
+<?php
+
+namespace Chantouch\Addresses\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Collection;
-
 use Chantouch\Addresses\Models\Address;
 use Chantouch\Addresses\Models\Contact;
 

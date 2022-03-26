@@ -1,14 +1,14 @@
-<?php namespace Chantouch\Addresses\Traits;
+<?php
 
+namespace Chantouch\Addresses\Traits;
+
+use Chantouch\Addresses\Models\Country;
 use Exception;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Collection;
-
 use Chantouch\Addresses\Models\Address;
 use Chantouch\Addresses\Exceptions\FailedValidationException;
-
-use Webpatser\Countries\Countries;
 
 /**
  * Class HasAddresses
@@ -193,11 +193,11 @@ trait HasAddresses
      * Validate the address.
      *
      * @param string $countryCode
-     * @return Countries|null
+     * @return Country|null
      */
-    function findCountryByCode(string $countryCode): ?Countries
+    function findCountryByCode(string $countryCode): ?Country
     {
-        return Countries::where('iso_3166_2',   $countryCode)
+        return Country::where('iso_3166_2',   $countryCode)
                         ->orWhere('iso_3166_3', $countryCode)
                         ->first();
     }

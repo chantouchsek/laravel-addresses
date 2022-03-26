@@ -1,4 +1,6 @@
-<?php namespace Chantouch\Addresses\Models;
+<?php
+
+namespace Chantouch\Addresses\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
