@@ -14,7 +14,7 @@ return new class extends Migration
      *
      * @var string  $table  The main table name for this migration.
      */
-    protected $table;
+    protected string $table;
 
     /**
      * Create a new migration instance.
