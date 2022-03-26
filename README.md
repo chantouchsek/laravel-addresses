@@ -24,6 +24,8 @@ and run `$ composer update` or both in one with `$ composer require chantouch/la
 $ php artisan vendor:publish --provider="Chantouch\Addresses\AddressesServiceProvider"
 ```
 
+This will publish a `config/laravel-address.php` and some migration files, that you'll have to run:
+
 ```bash
 $ php artisan migrate
 ```
