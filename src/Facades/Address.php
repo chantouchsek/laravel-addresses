@@ -1,4 +1,6 @@
-<?php namespace Chantouch\Addresses\Facades;
+<?php
+
+namespace Chantouch\Addresses\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

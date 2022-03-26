@@ -44,7 +44,7 @@ return new class extends Migration
             $table->integer('country_id')->nullable()->unsigned()->index();
             $table->foreign('country_id')
                   ->references('id')
-                  ->on('countries');
+                  ->on(config('laravel-address.countries.table', 'countries'));
 
             $table->string('notes')->nullable();
 

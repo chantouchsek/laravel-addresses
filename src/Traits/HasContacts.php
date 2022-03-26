@@ -1,10 +1,11 @@
-<?php namespace Chantouch\Addresses\Traits;
+<?php
+
+namespace Chantouch\Addresses\Traits;
 
 use Exception;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Collection;
-
 use Chantouch\Addresses\Models\Contact;
 use Chantouch\Addresses\Exceptions\FailedValidationException;
 
