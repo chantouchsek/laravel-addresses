@@ -10,9 +10,9 @@ class AddressesServiceProvider extends ServiceProvider
 {
     /** @var string[]|array */
     protected array $migrations = [
+        'CreateCountriesTable' => 'create_countries_table',
         'CreateAddressesTable' => 'create_addresses_table',
         'CreateContactsTable' => 'create_contacts_table',
-        'CreateCountriesTable' => 'create_countries_table',
     ];
 
     public function boot()
