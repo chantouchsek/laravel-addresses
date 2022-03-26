@@ -4,7 +4,6 @@ namespace Chantouch\Addresses\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -32,7 +31,6 @@ use Webpatser\Uuid\Uuid;
  */
 class Address extends Model
 {
-    use HasFactory;
     use HasCountry;
     use SoftDeletes;
 
