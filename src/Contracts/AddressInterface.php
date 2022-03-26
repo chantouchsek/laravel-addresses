@@ -3,10 +3,10 @@
 namespace Chantouch\Addresses\Contracts;
 
 /**
- * Interface AddressableInterface
+ * Interface AddressInterface
  * @package Chantouch\Addresses\Contracts
  */
-interface AddressableInterface
+interface AddressInterface
 {
     /**
      * @return mixed

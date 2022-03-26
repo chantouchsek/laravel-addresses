@@ -2,7 +2,6 @@
 
 namespace Chantouch\Addresses\Facades;
 
-use Chantouch\Addresses\Contracts\AddressableInterface;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -14,6 +13,6 @@ class Address extends Facade
     /** @inheritdoc */
     protected static function getFacadeAccessor(): string
     {
-        return AddressableInterface::class;
+        return 'address';
     }
 }
