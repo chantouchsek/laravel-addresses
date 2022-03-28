@@ -87,7 +87,7 @@ class Address extends Model
                 $model->uuid = Uuid::generate(4)->string;
         });
 
-        static::saving(function (Address  $address) {
+        static::saving(function (Address $address) {
             if (config('laravel-address.addresses.geocode', false))
                 $address->geocode();
         });
