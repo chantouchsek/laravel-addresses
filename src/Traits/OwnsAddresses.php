@@ -10,8 +10,8 @@ use Chantouch\Addresses\Models\Contact;
 /**
  * Class OwnsAddresses
  * @package Chantouch\Addresses\Traits
- * @property Collection|Address[]  $addresses
- * @property Collection|Contact[]  $contacts
+ * @property Collection|Address[] $addresses
+ * @property Collection|Contact[] $contacts
  */
 trait OwnsAddresses
 {
@@ -43,8 +43,8 @@ trait OwnsAddresses
     public function getBillingAddresses(): Collection
     {
         return $this->addresses()
-                    ->where('is_billing', true)
-                    ->get();
+            ->where('is_billing', true)
+            ->get();
     }
 
     /**
@@ -55,7 +55,7 @@ trait OwnsAddresses
     public function getShippingAddresses(): Collection
     {
         return $this->addresses()
-                    ->where('is_shipping', true)
-                    ->get();
+            ->where('is_shipping', true)
+            ->get();
     }
 }

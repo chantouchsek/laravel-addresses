@@ -16,6 +16,8 @@ use Webpatser\Uuid\Uuid;
  * Class Address
  * @package Chantouch\Addresses\Models
  * @property string|null $street
+ * @property string|null $uuid
+ * @property int|null $id
  * @property string|null $street_extra
  * @property string|null $city
  * @property string|null $state
@@ -78,14 +80,14 @@ class Address extends Model
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function (Address $model) {
             if ($model->getConnection()
                 ->getSchemaBuilder()
                 ->hasColumn($model->getTable(), 'uuid'))
                 $model->uuid = Uuid::generate(4)->string;
         });
 
-        static::saving(function ($address) {
+        static::saving(function (Address  $address) {
             if (config('laravel-address.addresses.geocode', false))
                 $address->geocode();
         });

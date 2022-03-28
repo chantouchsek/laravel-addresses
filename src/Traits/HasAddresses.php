@@ -13,7 +13,7 @@ use Chantouch\Addresses\Exceptions\FailedValidationException;
 /**
  * Class HasAddresses
  * @package Chantouch\Addresses\Traits
- * @property Collection|Address[]  $addresses
+ * @property Collection|Address[] $addresses
  */
 trait HasAddresses
 {
@@ -39,9 +39,9 @@ trait HasAddresses
 
     /**
      * Check if model has an address.
+     * @return bool
      * @deprecated Use hasAddresses() instead.
      *
-     * @return bool
      */
     public function hasAddress(): bool
     {
@@ -51,7 +51,7 @@ trait HasAddresses
     /**
      * Add an address to this model.
      *
-     * @param  array  $attributes
+     * @param array $attributes
      * @return mixed
      * @throws Exception
      */
@@ -65,8 +65,8 @@ trait HasAddresses
     /**
      * Updates the given address.
      *
-     * @param  Address  $address
-     * @param  array    $attributes
+     * @param Address $address
+     * @param array $attributes
      * @return bool
      * @throws Exception
      */
@@ -80,7 +80,7 @@ trait HasAddresses
     /**
      * Deletes given address.
      *
-     * @param  Address  $address
+     * @param Address $address
      * @return bool
      * @throws Exception
      */
@@ -108,54 +108,54 @@ trait HasAddresses
     public function getPrimaryAddress(string $direction = 'desc'): ?Address
     {
         return $this->addresses()
-                    ->primary()
-                    ->orderBy('is_primary', $direction)
-                    ->first();
+            ->primary()
+            ->orderBy('is_primary', $direction)
+            ->first();
     }
 
     /**
      * Get the billing address.
      *
-     * @param  string  $direction
+     * @param string $direction
      * @return Address|null
      */
     public function getBillingAddress(string $direction = 'desc'): ?Address
     {
         return $this->addresses()
-                    ->billing()
-                    ->orderBy('is_billing', $direction)
-                    ->first();
+            ->billing()
+            ->orderBy('is_billing', $direction)
+            ->first();
     }
 
     /**
      * Get the first shipping address.
      *
-     * @param  string  $direction
+     * @param string $direction
      * @return Address|null
      */
     public function getShippingAddress(string $direction = 'desc'): ?Address
     {
         return $this->addresses()
-                    ->shipping()
-                    ->orderBy('is_shipping', $direction)
-                    ->first();
+            ->shipping()
+            ->orderBy('is_shipping', $direction)
+            ->first();
     }
 
     /**
      * Add country id to attributes array.
      *
-     * @param  array  $attributes
+     * @param array $attributes
      * @return array
      * @throws FailedValidationException
      */
     public function loadAddressAttributes(array $attributes): array
     {
         // return if no country given
-        if (! isset($attributes['country']))
+        if (!isset($attributes['country']))
             throw new FailedValidationException('[Addresses] No country code given.');
 
         // find country
-        if (! ($country = $this->findCountryByCode($attributes['country'])) || ! isset($country->id))
+        if (!($country = $this->findCountryByCode($attributes['country'])) || !isset($country->id))
             throw new FailedValidationException('[Addresses] Country not found, did you seed the countries table?');
 
         // unset country from attributes array
@@ -167,7 +167,7 @@ trait HasAddresses
 
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
-            $error  = '[Addresses] '. implode(' ', $errors);
+            $error = '[Addresses] ' . implode(' ', $errors);
 
             throw new FailedValidationException($error);
         }
@@ -179,7 +179,7 @@ trait HasAddresses
     /**
      * Validate the address.
      *
-     * @param  array  $attributes
+     * @param array $attributes
      * @return Validator
      */
     function validateAddress(array $attributes): Validator
@@ -197,8 +197,8 @@ trait HasAddresses
      */
     function findCountryByCode(string $countryCode): ?Country
     {
-        return Country::where('iso_3166_2',   $countryCode)
-                        ->orWhere('iso_3166_3', $countryCode)
-                        ->first();
+        return Country::where('iso_3166_2', $countryCode)
+            ->orWhere('iso_3166_3', $countryCode)
+            ->first();
     }
 }

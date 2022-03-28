@@ -12,7 +12,7 @@ use Chantouch\Addresses\Exceptions\FailedValidationException;
 /**
  * Class HasContacts
  * @package Chantouch\Addresses\Traits
- * @property Collection|Contact[]  $contacts
+ * @property Collection|Contact[] $contacts
  */
 trait HasContacts
 {
@@ -39,7 +39,7 @@ trait HasContacts
     /**
      * Add a contact to this model.
      *
-     * @param  array  $attributes
+     * @param array $attributes
      * @return mixed
      * @throws Exception
      */
@@ -53,8 +53,8 @@ trait HasContacts
     /**
      * Updates the given contact.
      *
-     * @param  Contact  $contact
-     * @param  array    $attributes
+     * @param Contact $contact
+     * @param array $attributes
      * @return bool
      * @throws Exception
      */
@@ -68,7 +68,7 @@ trait HasContacts
     /**
      * Deletes given contact.
      *
-     * @param  Contact  $contact
+     * @param Contact $contact
      * @return bool
      * @throws Exception
      */
@@ -93,7 +93,7 @@ trait HasContacts
     /**
      * Add country id to attributes array.
      *
-     * @param  array  $attributes
+     * @param array $attributes
      * @return array
      * @throws FailedValidationException
      */
@@ -104,7 +104,7 @@ trait HasContacts
 
         if ($validator->fails()) {
             $errors = $validator->errors()->all();
-            $error  = '[Addresses] '. implode(' ', $errors);
+            $error = '[Addresses] ' . implode(' ', $errors);
 
             throw new FailedValidationException($error);
         }
@@ -115,7 +115,7 @@ trait HasContacts
     /**
      * Validate the contact.
      *
-     * @param  array  $attributes
+     * @param array $attributes
      * @return Validator
      */
     function validateContact(array $attributes): Validator

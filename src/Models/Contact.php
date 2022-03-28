@@ -12,6 +12,7 @@ use Webpatser\Uuid\Uuid;
 /**
  * Class Contact
  * @package Chantouch\Addresses\Models
+ * @property string|null $uuid
  * @property string|null $gender
  * @property string|null $title
  * @property string|null $first_name
@@ -91,7 +92,7 @@ class Contact extends Model
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(function (Contact $model) {
             if ($model->getConnection()
                 ->getSchemaBuilder()
                 ->hasColumn($model->getTable(), 'uuid'))
