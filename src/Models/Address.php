@@ -57,11 +57,6 @@ class Address extends Model
     ];
 
     /** @inheritdoc */
-    protected $dates = [
-        'deleted_at',
-    ];
-
-    /** @inheritdoc */
     protected $casts = [
         'properties' => 'array',
     ];
@@ -207,7 +202,7 @@ class Address extends Model
     }
 
     /**
-     * Get the address as array.
+     * Get the address as an array.
      *
      * @return array
      */
@@ -302,13 +297,13 @@ class Address extends Model
     }
 
     /**
-     * Get the route name (without street number).
+     * Get the route name (without a street number).
      *
      * @return string
      */
     public function getRouteAttribute(): string
     {
-        if (preg_match('/([^\d]+)\s?(.+)/i', $this->street, $result))
+        if (preg_match('/(\D+)\s?(.+)/i', $this->street, $result))
             return $result[1];
 
         return '';
@@ -321,7 +316,7 @@ class Address extends Model
      */
     public function getStreetNumberAttribute(): string
     {
-        if (preg_match('/([^\d]+)\s?(.+)/i', $this->street, $result))
+        if (preg_match('/(\D+)\s?(.+)/i', $this->street, $result))
             return $result[2];
 
         return '';

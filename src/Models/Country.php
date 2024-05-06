@@ -34,7 +34,7 @@ class Country extends Model {
     
     /**
      * @var string
-     * The table for the countries in the database, is "countries" by default.
+     * The table for the countries in the database is "countries" by default.
      */
     protected $table;
 
@@ -47,14 +47,14 @@ class Country extends Model {
     }
     
     /**
-     * Get the countries from the JSON file, if it hasn't already been loaded.
+     * Get the countries from the JSON file if it hasn't already been loaded.
      *
      * @return array
      */
     protected function getCountries(): array
     {
         //Get the countries from the JSON file
-        if (is_null($this->countries) || empty($this->countries)) {
+        if (empty($this->countries)) {
             $this->countries = json_decode(file_get_contents(__DIR__ . '/../../database/countries.json'), true);
         }
         
@@ -78,13 +78,13 @@ class Country extends Model {
     /**
      * Returns a list of countries
      *
-     * @param string sort
+     * @param string|null $sort sort
      *
      * @return array
      */
-    public function getList($sort = null): array
+    public function getList(string $sort = null): array
     {
-        //Get the countries list
+        //Get the country list
         $countries = $this->getCountries();
         
         //Sorting
@@ -129,11 +129,11 @@ class Country extends Model {
      * Returns a list of countries suitable to use with a select element in Laravelcollective\html
      * Will show the value and sort by the column specified in the display attribute
      *
-     * @param string display
+     * @param string $display display
      *
      * @return array
      */
-    public function getListForSelect($display = 'name'): array
+    public function getListForSelect(string $display = 'name'): array
     {
         $countries = [];
         foreach ($this->getList($display) as $key => $value) {

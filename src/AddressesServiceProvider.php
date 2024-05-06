@@ -15,7 +15,7 @@ class AddressesServiceProvider extends ServiceProvider
         'CreateContactsTable' => 'create_contacts_table',
     ];
 
-    public function boot()
+    public function boot(): void
     {
         $this->handleConfig();
         $this->handleMigrations();
@@ -42,7 +42,7 @@ class AddressesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function handleConfig()
+    private function handleConfig(): void
     {
         $configPath = __DIR__.'/../config/config.php';
 
@@ -56,7 +56,7 @@ class AddressesServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    private function handleMigrations()
+    private function handleMigrations(): void
     {
         $count = 0;
         foreach ($this->migrations as $class => $file) {
