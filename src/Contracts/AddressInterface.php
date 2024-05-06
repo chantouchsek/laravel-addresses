@@ -11,5 +11,5 @@ interface AddressInterface
     /**
      * @return mixed
      */
-    public function addresses();
+    public function addresses(): mixed;
 }

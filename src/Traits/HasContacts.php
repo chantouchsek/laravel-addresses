@@ -4,6 +4,7 @@ namespace Chantouch\Addresses\Traits;
 
 use Exception;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Collection;
 use Chantouch\Addresses\Models\Contact;
@@ -27,7 +28,7 @@ trait HasContacts
     }
 
     /**
-     * Check if model has contacts.
+     * Check if the model has contacts.
      *
      * @return bool
      */
@@ -40,10 +41,10 @@ trait HasContacts
      * Add a contact to this model.
      *
      * @param array $attributes
-     * @return mixed
+     * @return Model
      * @throws Exception
      */
-    public function addContact(array $attributes)
+    public function addContact(array $attributes): Model
     {
         $attributes = $this->loadContactAttributes($attributes);
 
@@ -91,7 +92,7 @@ trait HasContacts
     }
 
     /**
-     * Add country id to attributes array.
+     * Add country id to attribute an array.
      *
      * @param array $attributes
      * @return array

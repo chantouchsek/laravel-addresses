@@ -5,6 +5,7 @@ namespace Chantouch\Addresses\Traits;
 use Chantouch\Addresses\Models\Country;
 use Exception;
 use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Collection;
 use Chantouch\Addresses\Models\Address;
@@ -28,7 +29,7 @@ trait HasAddresses
     }
 
     /**
-     * Check if model has addresses.
+     * Check if the model has addresses.
      *
      * @return bool
      */
@@ -38,7 +39,7 @@ trait HasAddresses
     }
 
     /**
-     * Check if model has an address.
+     * Check if the model has an address.
      * @return bool
      * @deprecated Use hasAddresses() instead.
      *
@@ -52,10 +53,10 @@ trait HasAddresses
      * Add an address to this model.
      *
      * @param array $attributes
-     * @return mixed
+     * @return Model
      * @throws Exception
      */
-    public function addAddress(array $attributes)
+    public function addAddress(array $attributes): Model
     {
         $attributes = $this->loadAddressAttributes($attributes);
 
@@ -142,7 +143,7 @@ trait HasAddresses
     }
 
     /**
-     * Add country id to attributes array.
+     * Add country id to attribute an array.
      *
      * @param array $attributes
      * @return array
@@ -158,7 +159,7 @@ trait HasAddresses
         if (!($country = $this->findCountryByCode($attributes['country'])) || !isset($country->id))
             throw new FailedValidationException('[Addresses] Country not found, did you seed the countries table?');
 
-        // unset country from attributes array
+        // unset country from an attribute array
         unset($attributes['country']);
         $attributes['country_id'] = $country->id;
 

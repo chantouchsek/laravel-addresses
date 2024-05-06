@@ -38,7 +38,7 @@ trait OwnsAddresses
     /**
      * Get all billing addresses for this model.
      *
-     * @return Address[]|Collection
+     * @return Collection
      */
     public function getBillingAddresses(): Collection
     {
@@ -50,7 +50,7 @@ trait OwnsAddresses
     /**
      * Get all shipping addresses for this model.
      *
-     * @return Address[]|Collection
+     * @return Collection
      */
     public function getShippingAddresses(): Collection
     {

@@ -68,12 +68,6 @@ class Contact extends Model
         'contactable_type',
     ];
 
-    /** @inheritdoc */
-    protected $dates = [
-        'deleted_at',
-    ];
-
-    /** @inheritdoc */
     protected $casts = [
         'properties' => 'array',
     ];
@@ -88,7 +82,7 @@ class Contact extends Model
     }
 
     /** @inheritdoc */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 

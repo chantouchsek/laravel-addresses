@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 trait HasCountry
 {
     /**
-     * Get the models country.
+     * Get the model country.
      *
      * @return BelongsTo
      */
